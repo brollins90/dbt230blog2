@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cassandra;
+using CassandraBlogStuff;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +12,22 @@ namespace DBT230_blog
     public partial class _Default : Page
     {
         public List<string> titles;
+        public List<Post> posts { get; set; }
+        public CassDB _db { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            _db = new CassDB();
+
+
+
+            RowSet res = _db.Execute("SELECT * FROM post");
+            posts = new List<Post>();
+            foreach (Row r in res)
+            {
+                posts.Add(Post.FromRow(r));
+            }
+
 
             titles = new List<string>();
             titles.Add("title 1");

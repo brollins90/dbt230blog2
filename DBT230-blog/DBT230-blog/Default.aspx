@@ -3,10 +3,14 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="jumbotron">
-
+        
         <% foreach (string current in titles)
            {
                Response.Write(string.Format("<p>{0}</p>",current));
+           } %>
+        <% foreach (CassandraBlogStuff.Post current in posts)
+           {
+               Response.Write(string.Format("<p>{0}</p>",current.ToString()));
            } %>
     </div>
 

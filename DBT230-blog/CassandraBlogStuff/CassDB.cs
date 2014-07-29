@@ -80,5 +80,10 @@ namespace CassandraBlogStuff
                 _cluster = null;
             }
         }
+
+        public void CreatePost(string postTitle, string postContent, string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
