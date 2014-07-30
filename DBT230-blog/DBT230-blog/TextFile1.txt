@@ -1,0 +1,33 @@
+﻿CREATE KEYSPACE ABC
+WITH replication = {'class':'SimpleStrategy', 'replication_factor': 3};
+
+USE ABC;
+
+CREATE COLUMNFAMILY User 
+(
+        UserID uuid PRIMARY KEY,
+        UserName text,       
+        Password text
+);
+
+CREATE INDEX ON User (UserName);
+
+CREATE COLUMNFAMILY Post
+(
+	PostID timeuuid PRIMARY KEY,
+	PostTitle text,
+	Content text,
+	Poster text,
+	PostTime timestamp
+);
+
+CREATE INDEX title ON Post (PostTitle);
+
+CREATE COLUMNFAMILY Comment
+(
+	CommentID uuid PRIMARY KEY,
+	Content text,
+	Poster text,
+	PostTime timestamp
+);
+

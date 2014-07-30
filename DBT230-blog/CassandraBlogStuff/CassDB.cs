@@ -144,16 +144,16 @@ namespace CassandraBlogStuff
             throw new NotImplementedException();
         }
 
-        public void UpdatePost(string postTitle, string postContent, string id, string time)
+        public void UpdatePost(string postTitle, string postContent, string id)
         {
-            //string cql = string.Format("UPDATE post set posttitle = '{0}', content = '{1}' WHERE postid = {2} and posttime = {3}", postTitle, postContent, id, time);
+            string cql = string.Format("UPDATE post set posttitle = '{0}', content = '{1}' WHERE postid = {2};", postTitle, postContent, id);
 
-            //RowSet res = Execute(cql);
-            //foreach (Row r in res.GetRows())
-            //{
-            //    //return Post.FromRow(r);
-            //}
-            ////return null;
+            RowSet res = Execute(cql);
+            foreach (Row r in res.GetRows())
+            {
+                //return Post.FromRow(r);
+            }
+            //return null;
         }
     }
 }

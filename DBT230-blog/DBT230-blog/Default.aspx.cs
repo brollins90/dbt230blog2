@@ -25,6 +25,8 @@ namespace DBT230_blog
             {
                 posts.Add(Post.FromRow(r));
             }
+            posts = posts.OrderByDescending(o => o.posttime).ToList();
+
 
         }
     }

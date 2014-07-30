@@ -25,6 +25,8 @@ namespace DBT230_blog
 
             comments = _db.GetCommentsByID(value);
 
+            comments = comments.OrderByDescending(c => c.posttime).ToList();
+
 
         }
 
