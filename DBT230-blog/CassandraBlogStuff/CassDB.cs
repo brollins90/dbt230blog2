@@ -84,7 +84,16 @@ namespace CassandraBlogStuff
         public void CreatePost(string postTitle, string postContent, string username)
         {
             // write a cql statement that will INSERT a new post
-            string cql = string.Format("insert into post (postid, posttitle, content, poster, posttime) values (now(), '"+postTitle+"', '"+postContent+"', '"+username+"', '"+Environment.TickCount+"');");
+            string cql = string.Format("insert into post (postid, posttitle, content, poster, posttime) values (now(), '" + postTitle + "', '" + postContent + "', '" + username + "', '" + Environment.TickCount + "');");
+
+            Execute(cql);
+        }
+
+
+        public void CreateComment(string postContent, string username)
+        {
+            // write a cql statement that will INSERT a new comment
+            string cql = string.Format("insert into comment (postid, content, poster, posttime) values (now(), '" + postContent + "', '" + username + "', '" + Environment.TickCount + "');");
 
             Execute(cql);
         }
@@ -95,5 +104,17 @@ namespace CassandraBlogStuff
 
 
 
+
+        public Post GetPostByID(string value)
+        {
+            string cql = "SELECT * FROM post WHERE postid = " + value;
+
+            RowSet res = Execute(cql);
+            foreach (Row r in res.GetRows())
+            {
+                return Post.FromRow(r);
+            }
+            return null;
+        }
     }
 }

@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="BlogData.cs" />
     <Compile Include="CassDB.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

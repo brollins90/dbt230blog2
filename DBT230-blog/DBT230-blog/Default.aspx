@@ -4,13 +4,9 @@
     
     <div class="jumbotron">
         
-        <% foreach (string current in titles)
-           {
-               Response.Write(string.Format("<p>{0}</p>",current));
-           } %>
         <% foreach (CassandraBlogStuff.Post current in posts)
            {
-               Response.Write(string.Format("<p>{0}</p>",current.ToString()));
+               Response.Write(string.Format("<p><a href='P.aspx?id={0}'>{1} <br/> -- {2}</a></p>",current.postid, current.ToString(), current.poster));
            } %>
     </div>
 
