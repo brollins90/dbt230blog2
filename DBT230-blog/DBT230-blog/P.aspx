@@ -22,9 +22,9 @@
     <p>
         <% foreach (CassandraBlogStuff.Comment current in comments)
           {
-              string htmlComment = string.Format("<div class='commentsection'>" +
-                  "<div class='commenter'>Comment by <strong>{0}</strong> | {1:MM/dd/yyyy hh:mm t}M</div>" +
-                  "<div class='commentcontent'>{2}</div>" +
+              string htmlComment = string.Format("<div class='commentsBlock'>" +
+                  "<div class='commentPoster'>Comment by <strong>{0}</strong> | {1:MM/dd/yyyy hh:mm t}M</div>" +
+                  "<div class='commentContent'>{2}</div>" +
                   "</div>",
                   current.poster, current.posttime.ToLocalTime(), current.content);
               Response.Write(htmlComment);

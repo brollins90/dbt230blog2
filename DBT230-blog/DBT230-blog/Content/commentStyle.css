@@ -4,6 +4,9 @@
     border:solid;
     border-width:1.7px;
     border-color:darkgray;
+    width: 55%;
+    margin: 5px;
+    padding:2px;
 }
 
 .commentPoster
