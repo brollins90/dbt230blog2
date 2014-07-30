@@ -83,7 +83,17 @@ namespace CassandraBlogStuff
 
         public void CreatePost(string postTitle, string postContent, string username)
         {
-            throw new NotImplementedException();
+            // write a cql statement that will INSERT a new post
+            string cql = string.Format("insert into post (postid, posttitle, content, poster, posttime) values (now(), '"+postTitle+"', '"+postContent+"', '"+username+"', '"+Environment.TickCount+"');");
+
+            Execute(cql);
         }
+
+
+
+
+
+
+
     }
 }

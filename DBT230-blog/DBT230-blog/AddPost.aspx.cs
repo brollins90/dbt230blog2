@@ -27,7 +27,7 @@ namespace DBT230_blog
                 string postTitle = Request.Form["title"];
                 string postContent = Request.Form["content"];
                 temp = Context.User.Identity.Name;
-                //_db.CreatePost(postTitle, postContent, Membership.GetUser().UserName);
+                _db.CreatePost(postTitle, postContent, Context.User.Identity.Name);
             }
 
         }
