@@ -35,9 +35,9 @@ namespace DBT230_blog
             else
             {
                 string id = Request.QueryString["Id"];
-                string postTitle = Request.Form["title"];
-                string postContent = Request.Form["content"];
-                string timestring = Request.Form["posttime"];
+                string postTitle = title.InnerHtml;// Request.Form["title"];
+                string postContent = content.InnerHtml;// Request.Form["content"];
+                string timestring = posttime.InnerHtml;// Request.Form["posttime"];
                 _db.UpdatePost(postTitle, postContent, id, timestring);
                 Response.Redirect("/");
             }

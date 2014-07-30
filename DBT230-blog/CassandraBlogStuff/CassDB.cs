@@ -18,10 +18,22 @@ namespace CassandraBlogStuff
 
         public CassDB(string node, string keyspace)
         {
-            _cluster = Cluster.Builder().AddContactPoint(node).Build();
-            Metadata metadata = _cluster.Metadata;
-            //Console.WriteLine("Connected to cluster: {0}", metadata.ClusterName.ToString());
-            _session = (Session)_cluster.Connect(keyspace);
+            bool retry = true;
+            while (retry)
+            {
+                retry = false;
+                try
+                {
+                    _cluster = Cluster.Builder().AddContactPoint(node).Build();
+                    Metadata metadata = _cluster.Metadata;
+                    //Console.WriteLine("Connected to cluster: {0}", metadata.ClusterName.ToString());
+                    _session = (Session)_cluster.Connect(keyspace);
+                }
+                catch
+                {
+                    retry = true;
+                }
+            }
 
             //string connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
             //_connection = new MySqlConnection(connectionString);
@@ -134,14 +146,14 @@ namespace CassandraBlogStuff
 
         public void UpdatePost(string postTitle, string postContent, string id, string time)
         {
-            string cql = string.Format("UPDATE post set posttitle = '{0}', content = '{1}' WHERE postid = {2} and posttime = {3}", postTitle, postContent, id, time);
+            //string cql = string.Format("UPDATE post set posttitle = '{0}', content = '{1}' WHERE postid = {2} and posttime = {3}", postTitle, postContent, id, time);
 
-            RowSet res = Execute(cql);
-            foreach (Row r in res.GetRows())
-            {
-                //return Post.FromRow(r);
-            }
-            //return null;
+            //RowSet res = Execute(cql);
+            //foreach (Row r in res.GetRows())
+            //{
+            //    //return Post.FromRow(r);
+            //}
+            ////return null;
         }
     }
 }
