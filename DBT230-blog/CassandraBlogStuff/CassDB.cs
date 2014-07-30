@@ -84,7 +84,7 @@ namespace CassandraBlogStuff
         public void CreatePost(string postTitle, string postContent, string username)
         {
             // write a cql statement that will INSERT a new post
-            TimeSpan ts = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+            TimeSpan ts = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local));
             long millis = (long)ts.TotalMilliseconds;
             string cql = string.Format("insert into post (postid, posttitle, content, poster, posttime) values (now(), '" + postTitle + "', '" + postContent + "', '" + username + "', '" + millis + "');");
 
@@ -95,7 +95,7 @@ namespace CassandraBlogStuff
         public void CreateComment(string postContent, string username, string postid)
         {
             // write a cql statement that will INSERT a new comment
-            TimeSpan ts = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+            TimeSpan ts = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local));
             long millis = (long)ts.TotalMilliseconds;
             string cql = string.Format("insert into comment (commentid, content, poster, posttime, postid) values (now(), '" + postContent + "', '" + username + "', '" + millis + "', " + postid + ");");
 

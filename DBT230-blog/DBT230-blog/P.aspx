@@ -7,7 +7,7 @@
     <p>
         <% foreach (CassandraBlogStuff.Comment current in comments)
           {
-              Response.Write(string.Format("<p>{0} {1} {2}</p>", current.poster, current.content, current.posttime));
+              Response.Write(string.Format("<p>{0} {1} {2}</p>", current.poster, current.content, current.posttime.LocalDateTime));
           }
                    %></p>
 </asp:Content>
