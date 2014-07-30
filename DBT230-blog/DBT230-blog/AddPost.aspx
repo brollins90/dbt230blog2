@@ -3,11 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2> New Post</h2>
     <p>Write your blog post</p>
-    <p>Title:
-        <textarea name="title"></textarea>
-    </p>
-    <p>Content:
-        <textarea name="content"></textarea>
-    </p>
+    <div>Title:</div>
+    <div>
+        <textarea name="title" cols="80" rows="5"></textarea>
+    </div>
+    <div>Content:</div>
+    <div>
+        <textarea name="content" cols="80" rows="20"></textarea>
+    </div>
     <asp:Button ID="SubmitButton" runat="server" Text="Create Post" />
 </asp:Content>

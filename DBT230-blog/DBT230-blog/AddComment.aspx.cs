@@ -15,7 +15,7 @@ namespace DBT230_blog
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Context.User.Identity.Name))
+            if (string.IsNullOrEmpty(Context.User.Identity.Name) || string.IsNullOrEmpty(Request.QueryString["Id"]))
             {
                 Response.Redirect("/");
             }
