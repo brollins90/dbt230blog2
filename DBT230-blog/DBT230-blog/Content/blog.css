@@ -1,0 +1,21 @@
+﻿
+.blogpostdefault {
+    /*background-color:lightgray;*/
+}
+
+.posttitledefault {
+    font-size : 20px;
+}
+
+.posttimedefault {
+    font-size : 10px;
+}
+
+.postcontentdefault {
+    font-size : 15px;
+}
+
+.posterdefault {
+    font-size : 10px;
+    float:right;
+}

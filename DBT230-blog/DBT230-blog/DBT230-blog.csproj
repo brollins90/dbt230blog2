@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddComment.aspx" />
+    <Content Include="Content\blog.css" />
     <Content Include="P.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="About.aspx" />

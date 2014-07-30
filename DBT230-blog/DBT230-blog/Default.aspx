@@ -6,7 +6,15 @@
         
         <% foreach (CassandraBlogStuff.Post current in posts)
            {
-               Response.Write(string.Format("<p><a href='P.aspx?id={0}'>{1} <br/> -- {2}</a></p>",current.postid, current.ToString(), current.poster));
+               string htmlPost = string.Format("<div class='blogpostdefault'>" +
+                   "<a href='P.aspx?id={4}'><div class='posttitledefault'>{0}</div></a>" +
+                   "<div class='posttimedefault'>{1}</div>" +
+                   "<div class='postcontentdefault'>{2}</div>" +
+                   "<div class='posterdefault'>{3}</div>" +
+                   "</div><hr>",
+                   current.posttitle, current.posttime, current.content, current.poster, current.postid);
+               Response.Write(htmlPost);
+               //Response.Write(string.Format("<p><a href='P.aspx?id={0}'>{1} <br/> -- {2}</a></p>",current.postid, current.ToString(), current.poster));
            } %>
     </div>
 

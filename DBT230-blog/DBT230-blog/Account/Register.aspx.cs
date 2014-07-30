@@ -13,18 +13,20 @@ namespace DBT230_blog.Account
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var manager = new UserManager();
-            var user = new AspNet.Identity.Cassandra.IdentityUser() { UserName = UserName.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
-            if (result.Succeeded)
-            {
-                IdentityHelper.SignIn(manager, user, isPersistent: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
+            Response.Redirect("/");
+
+            //var manager = new UserManager();
+            //var user = new AspNet.Identity.Cassandra.IdentityUser() { UserName = UserName.Text };
+            //IdentityResult result = manager.Create(user, Password.Text);
+            //if (result.Succeeded)
+            //{
+            //    IdentityHelper.SignIn(manager, user, isPersistent: false);
+            //    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            //}
+            //else 
+            //{
+            //    ErrorMessage.Text = result.Errors.FirstOrDefault();
+            //}
         }
     }
 }
