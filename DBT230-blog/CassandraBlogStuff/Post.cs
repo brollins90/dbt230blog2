@@ -37,7 +37,7 @@ namespace CassandraBlogStuff
             {
                 return string.Format("{0} {1}", posttitle + "<br/>", content);
             }
-            return string.Format("{0} {1}", posttitle + "<br/>", content.Substring(0,35) + "...");
+            return string.Format("{0} {1}", posttitle + "<br/>&nbsp&nbsp", content.Substring(0, 35) + "...");
         }
     }
 }

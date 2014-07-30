@@ -1,0 +1,18 @@
+﻿.commentsBlock
+{
+    background-color:lightgrey;
+    border:solid;
+    border-width:1.7px;
+    border-color:darkgray;
+}
+
+.commentPoster
+{
+    font-size:small;
+    font-style:italic;
+}
+
+.commentContent
+{
+    font-size:large
+}

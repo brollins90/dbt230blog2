@@ -19,8 +19,6 @@ namespace DBT230_blog
         {
             _db = new CassDB();
 
-
-
             RowSet res = _db.Execute("SELECT * FROM post");
             posts = new List<Post>();
             foreach (Row r in res)
