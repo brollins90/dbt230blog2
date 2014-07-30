@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddComment.aspx" />
+    <Content Include="EditPost.aspx" />
     <Content Include="Content\blog.css" />
     <Content Include="Content\commentStyle.css" />
     <Content Include="P.aspx" />
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="AddComment.aspx.designer.cs">
       <DependentUpon>AddComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPost.aspx.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPost.aspx.designer.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
     </Compile>
     <Compile Include="P.aspx.cs">
       <DependentUpon>P.aspx</DependentUpon>

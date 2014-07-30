@@ -27,5 +27,10 @@ namespace DBT230_blog
 
 
         }
+
+        protected void editPostButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

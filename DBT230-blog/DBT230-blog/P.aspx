@@ -1,8 +1,22 @@
 ﻿<%@ Page Title="Post" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="P.aspx.cs" Inherits="DBT230_blog.P" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: daPost.posttitle %></h2>
-    <p><%: daPost.content %></p>
+
+    <%
+        if (daPost.poster.Equals(Context.User.Identity.Name))
+        {
+            %> 
+    <p><a href='EditPost.aspx?id=<%: daPost.postid %>'>Edit Post</a></p> <%
+        }
+        string htmlPost = string.Format("<div class='wholepost'>" +
+            "<h2>{0}</h2>" +
+            "<div class='poster'>Post by {1} | {3:MM/dd/yyyy}</div>" +
+            "<div class='postcontentp'>{2}</div>" +
+            "</div><hr>",
+            daPost.posttitle, daPost.poster, daPost.content, daPost.posttime);
+        Response.Write(htmlPost);
+         %>
+
     <p><a href='AddComment.aspx?id=<%: daPost.postid %>'>Add a comment</a></p>
     <p>
         <% foreach (CassandraBlogStuff.Comment current in comments)
