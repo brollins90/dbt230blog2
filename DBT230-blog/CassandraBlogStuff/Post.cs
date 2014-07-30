@@ -33,7 +33,11 @@ namespace CassandraBlogStuff
         }
         public override string ToString()
         {
-            return string.Format("{0}", postid);
+            if (content.Length < 35)
+            {
+                return string.Format("{0} {1}", posttitle + "<br/>", content);
+            }
+            return string.Format("{0} {1}", posttitle + "<br/>", content.Substring(0,35) + "...");
         }
     }
 }
