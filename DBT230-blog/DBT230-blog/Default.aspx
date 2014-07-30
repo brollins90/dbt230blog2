@@ -8,7 +8,7 @@
            {
                string htmlPost = string.Format("<div class='blogpostdefault'>" +
                    "<a href='P.aspx?id={4}'><div class='posttitledefault'>{0}</div></a>" +
-                   "<div class='posttimedefault'>{1}</div>" +
+                   "<div class='posttimedefault'>{1:MM/dd/yyyy}</div>" +
                    "<div class='postcontentdefault'>{2}</div>" +
                    "<div class='posterdefault'>{3}</div>" +
                    "</div><hr>",

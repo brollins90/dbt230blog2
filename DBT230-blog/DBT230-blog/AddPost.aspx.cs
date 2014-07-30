@@ -29,6 +29,7 @@ namespace DBT230_blog
             {
                 string postTitle = Request.Form["title"];
                 string postContent = Request.Form["content"];
+                //string tempContent = postContent.Replace("\n", "<br/>");
                 _db.CreatePost(postTitle, postContent, Context.User.Identity.Name);
                 Response.Redirect("/");
             }

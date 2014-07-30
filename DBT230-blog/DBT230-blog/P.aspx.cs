@@ -19,7 +19,7 @@ namespace DBT230_blog
             _db = new CassDB();
             comments = new List<Comment>();
             string value = Request.QueryString["Id"];
-            value = (string.IsNullOrEmpty(value)) ? "a7e98090-1783-11e4-92ad-bf26edef3f23" : value;
+            value = (string.IsNullOrEmpty(value)) ? "afb1d270-1795-11e4-92ad-bf26edef3f23" : value;
 
             daPost = _db.GetPostByID(value);
 
