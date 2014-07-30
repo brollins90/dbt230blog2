@@ -31,3 +31,8 @@ CREATE COLUMNFAMILY Comment
 	PostTime timestamp
 );
 
+CREATE COLUMNFAMILY Tags
+(
+	TagName text PRIMARY KEY,
+	PostID set<timeuuid>
+);

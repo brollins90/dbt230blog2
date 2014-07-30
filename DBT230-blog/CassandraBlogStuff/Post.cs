@@ -14,7 +14,7 @@ namespace CassandraBlogStuff
         public string poster { get; set; }
         public DateTimeOffset posttime { get; set; }
         public string posttitle { get; set; }
-
+        
         public static Post FromRow(Row r)
         {
             if (r != null)

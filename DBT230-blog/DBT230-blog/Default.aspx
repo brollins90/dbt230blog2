@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
+    <div class="tagcolumn"></div>
     <div class="jumbotron">
         
         <% foreach (CassandraBlogStuff.Post current in posts)
