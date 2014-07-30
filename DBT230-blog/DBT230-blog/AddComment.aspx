@@ -6,5 +6,5 @@
     <p>Content:
         <textarea name="content"></textarea>
     </p>
-    <asp:Button ID="SubmitButton" runat="server" Text="Create Post" />
+    <asp:Button ID="SubmitButton" runat="server" Text="Post Comment" />
 </asp:Content>

@@ -24,7 +24,9 @@ namespace DBT230_blog
             {
                 string postTitle = Request.Form["title"];
                 string postContent = Request.Form["content"];
-                _db.CreateComment(postContent, Context.User.Identity.Name);
+                string value = Request.QueryString["Id"];
+                value = (string.IsNullOrEmpty(value)) ? "a7e98090-1783-11e4-92ad-bf26edef3f23" : value;
+                _db.CreateComment(postContent, Context.User.Identity.Name, value);
                 Response.Redirect("/");
             }
 

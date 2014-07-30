@@ -3,5 +3,5 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: daPost.posttitle %></h2>
     <p><%: daPost.content %></p>
-    <p><a href='AddComment.aspx?id=<%: daPost.postid %>'>Add a cment</a></p>
+    <p><a href='AddComment.aspx?id=<%: daPost.postid %>'>Add a comment</a></p>
 </asp:Content>

@@ -90,10 +90,10 @@ namespace CassandraBlogStuff
         }
 
 
-        public void CreateComment(string postContent, string username)
+        public void CreateComment(string postContent, string username, string postid)
         {
             // write a cql statement that will INSERT a new comment
-            string cql = string.Format("insert into comment (postid, content, poster, posttime) values (now(), '" + postContent + "', '" + username + "', '" + Environment.TickCount + "');");
+            string cql = string.Format("insert into comment (commentid, content, poster, posttime, postid) values (now(), '" + postContent + "', '" + username + "', '" + Environment.TickCount + "', " + postid + ");");
 
             Execute(cql);
         }
