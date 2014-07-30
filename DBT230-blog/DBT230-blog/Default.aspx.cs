@@ -28,11 +28,6 @@ namespace DBT230_blog
                 posts.Add(Post.FromRow(r));
             }
 
-
-            titles = new List<string>();
-            titles.Add("title 1");
-            titles.Add("title 2");
-            titles.Add("title 3");
         }
     }
 }
