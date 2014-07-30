@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace CassandraBlogStuff
 {
-    class Comment
+    public class Comment
     {
         public Guid commentid { get; set; }
         public string content { get; set; }
         public string poster { get; set; }
+        public Guid postid { get; set; }
         public DateTimeOffset posttime { get; set; }
 
         public static Comment FromRow(Row r)
@@ -23,12 +24,15 @@ namespace CassandraBlogStuff
                     commentid = r.GetValue<Guid>("commentid"),
                     content = (string.IsNullOrEmpty(r.GetValue<string>("content"))) ? null : r.GetValue<string>("content"),
                     poster = (string.IsNullOrEmpty(r.GetValue<string>("poster"))) ? null : r.GetValue<string>("poster"),
+                    postid = r.GetValue<Guid>("postid"),
                     posttime = r.GetValue<DateTimeOffset>("posttime")
                 };
                 return p;
             }
             return null;
         }
+
+
         public override string ToString()
         {
             return string.Format("{0} <br/> -- {1}({2})", content, poster, posttime);

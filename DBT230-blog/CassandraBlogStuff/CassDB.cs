@@ -98,12 +98,18 @@ namespace CassandraBlogStuff
             Execute(cql);
         }
 
+        public List<Comment> GetCommentsByID(string value)
+        {
+            string cql = "SELECT * FROM comment WHERE postid = " + value;
+            List<Comment> commentsList = new List<Comment>();
 
-
-
-
-
-
+            RowSet res = Execute(cql);
+            foreach (Row r in res.GetRows())
+            {
+                commentsList.Add(Comment.FromRow(r));
+            }
+            return commentsList;
+        }
 
         public Post GetPostByID(string value)
         {
@@ -115,6 +121,11 @@ namespace CassandraBlogStuff
                 return Post.FromRow(r);
             }
             return null;
+        }
+
+        public void CreateC(string postTitle, string postContent, string p)
+        {
+            throw new NotImplementedException();
         }
     }
 }
