@@ -15,6 +15,11 @@ namespace DBT230_blog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Context.User.Identity.Name))
+            {
+                Response.Redirect("/");
+            }
+
             _db = new CassDB();
             if (!IsPostBack)
             {
@@ -24,10 +29,10 @@ namespace DBT230_blog
             {
                 string postTitle = Request.Form["title"];
                 string postContent = Request.Form["content"];
-                string value = Request.QueryString["Id"];
-                value = (string.IsNullOrEmpty(value)) ? "a7e98090-1783-11e4-92ad-bf26edef3f23" : value;
-                _db.CreateComment(postContent, Context.User.Identity.Name, value);
-                Response.Redirect("~/P?id="+value);
+                string postid = Request.QueryString["Id"];
+                postid = (string.IsNullOrEmpty(postid)) ? "a7e98090-1783-11e4-92ad-bf26edef3f23" : postid;
+                _db.CreateComment(postContent, Context.User.Identity.Name, postid);
+                Response.Redirect("~/P?id="+postid);
             }
 
         }

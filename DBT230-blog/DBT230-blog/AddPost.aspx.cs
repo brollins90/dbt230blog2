@@ -14,7 +14,12 @@ namespace DBT230_blog
          public CassDB _db {get; set;}
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+         {
+             if (string.IsNullOrEmpty(Context.User.Identity.Name))
+             {
+                 Response.Redirect("/");
+             }
+
             _db = new CassDB();
             if (!IsPostBack)
             {

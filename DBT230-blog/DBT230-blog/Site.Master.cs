@@ -75,6 +75,7 @@ namespace DBT230_blog
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
+            Response.Redirect("/");
         }
     }
 
